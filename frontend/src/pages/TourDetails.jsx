@@ -1,20 +1,21 @@
 import React, {useRef, useState} from 'react' ;
 import '../styles/tour-details.css';
 import { Container, Row, Col, Form, ListGroup} from 'reactstrap' ; 
-import {useParams} from 'rect-router-dom' ;
+import {useParams} from 'react-router-dom' ;
 import tourData from '../assets/data/tours' ;
 import calculateAvgRating from './../utils/avgRating';
 
 import avatar from '../assets/images/avatar.jpg';
-import Booking from ''
+import Booking from '../components/Booking/Booking';
+import Newsletter from '../shared/Newsletter';
 
 
 const TourDetails = () => { 
     const {id} = useParams() 
     const reviewMsgRef = useRef('');
     const [tourRating, setTourRating] = useState('null');
-    const tour = tourData.find(tour=> tour.id === id) 
-    const {photo, title, desc, price, address, reviews, city, distance, maxGroupSize} = tour
+    const tour = tourData.find(tour=> tour.id === id) ;
+    const {photo, title, desc, price, address, reviews, city, distance, maxGroupSize} = tour;
     const {totalRating, avgRating} = calculateAvgRating(reviews);
     //format date
     const options = { day: 'numeric', month: 'long', year: 'numeric' };
@@ -23,10 +24,10 @@ const TourDetails = () => {
     const submitHandler = e=>{
         e.preventDefault ()
         const reviewText = reviewMsgRef.current.value;
-        
+       // alert(`${reviewText}, ${tourRating}`);
     };
 
-    return  <>
+    return   <>
     <section>
      <Container>
        <Row>
@@ -58,7 +59,7 @@ const TourDetails = () => {
 
                                 <span> <i class="ri-map-pin-2-line"></i> {city} </span>
                                 <span> <i class="ri-money-dollar-circle-line"></i> ${price} /per person </span>
-                                <span> <i class="ri-map-pin-time-line"></i> {distance} per km </span>
+                                <span> <i class="ri-map-pin-time-line"></i> {distance} k/m </span>
                                 <span> <i class="ri-group-line"></i> {'maxGroupSize'} people </span>  
                             </div>
                             <h5>Description</h5>
@@ -129,6 +130,7 @@ const TourDetails = () => {
           </Row>
         </Container>
     </section>
+    <Newsletter />
   </>  
 };
 
