@@ -14,7 +14,9 @@ import SearchBar from '../shared/SearchBar';
 import ServiceList from '../services/ServiceList';
 import FeaturedTourList from '../components/Featured-tours/FeaturedTourList';
 import MasonryImagesGallery from '../components/Image-gallery/MasonryImagesGallery';
-
+import Testimonials from '../components/Testimonial/Testimonials';
+import Newsletter from '../shared/Newsletter';
+   
 const Home = () => {
     return (
         <>
@@ -114,13 +116,13 @@ const Home = () => {
                 <Container>
                     <Row>
                         <Col lg='6'>
-                            <div className='experience__content'>
+                            <div className="experience__content">
                                 <Subtitle subtitle={'Experience'} />
 
                                 <h2>
                                     With our all experience <br /> we will serve
                                     you
-                                </h2>
+                                 </h2>
 
                                 <p>
                                     Lorem ipsum dolor sit amet consectetur
@@ -129,7 +131,7 @@ const Home = () => {
                                     nesciunt unde atque!
                                 </p>
                             </div>
-                            <div>
+                            <div className='counter__wrapper  d-flex align-items-center gap-5'> 
                                 <div className='counter__box'>
                                     <span>12k+</span>
                                     <h6>Successful trip</h6>
@@ -183,9 +185,25 @@ const Home = () => {
                                 What our fans say about us
                             </h2>
                         </Col>
+                        <Col lg="12">
+                           <Testimonials />
+                        </Col>
                     </Row>
-                </Container>
+                </Container> 
             </section>
+
+           <Newsletter/>
+
+
+
+
+
+
+
+
+
+
+
         </>
     );
 };
