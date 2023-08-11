@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 import Home from './../pages/Home';
 import Tours from './../pages/Tours';
@@ -8,11 +8,15 @@ import Login from './../pages/Login';
 import Register from './../pages/Register';
 import SearchResultList from './../pages/SearchResultList';
 import About from '../pages/About';
-import ThankYou from "../pages/ThankYou";
+import ThankYou from '../pages/ThankYou';
 
 const Routers = () => {
     return (
         <Routes>
+            <Route
+                path='/'
+                element={<Navigate to='/home' />}
+            ></Route>
             <Route
                 path='/home'
                 element={<Home />}
