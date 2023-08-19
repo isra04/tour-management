@@ -7,7 +7,8 @@ import {
     getSingleTour,
     getTourBySearch,
     updateTour,
-    getTourCount
+    getTourCount,
+    getAllCities
 } from '../controllers/tourController.js';
 
 import { verifyAdmin } from '../utils/verifyToken.js';
@@ -28,6 +29,9 @@ router.get('/:id', getSingleTour);
 
 // get all tours
 router.get('/', getAllTour);
+
+// get all distinct cities
+router.get('/search/getAllCities', getAllCities);
 
 // search tour
 router.get('/search/getTourBySearch', getTourBySearch);

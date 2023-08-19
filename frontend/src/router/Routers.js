@@ -9,6 +9,7 @@ import Register from './../pages/Register';
 import SearchResultList from './../pages/SearchResultList';
 import About from '../pages/About';
 import ThankYou from '../pages/ThankYou';
+import UserProfile from '../pages/UserProfile';
 
 const Routers = () => {
     return (
@@ -49,6 +50,11 @@ const Routers = () => {
                 path='/tours/search'
                 element={<SearchResultList />}
             />
+            <Route
+                path='/profile'
+                element={<UserProfile />}
+                exact
+            ></Route>
         </Routes>
     );
 };

@@ -38,7 +38,7 @@ export const updateTour = async (req, res) => {
     } catch (err) {
         res.status(500).json({
             success: false,
-            message: 'Failed update'
+            message: 'Failed to update'
         });
     }
 };
@@ -85,7 +85,7 @@ export const getAllTour = async (req, res) => {
     // for pagination
     const page = parseInt(req.query.page);
     try {
-        const tours = await Tour.find({})
+        const tours = await Tour.find()
             .populate('reviews')
             .skip(page * 8)
             .limit(8);
@@ -152,5 +152,30 @@ export const getTourCount = async (req, res) => {
         res.status(200).json({ success: true, data: tourCount });
     } catch (err) {
         res.status(500).json({ success: false, message: 'failed to fetch' });
+    }
+};
+
+export const getAllCities = async (req, res) => {
+    try {
+        const cities = await Tour.distinct('city');
+
+        if (!cities || cities.length === 0) {
+            return res.status(404).json({
+                success: false,
+                message: 'No cities found'
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            count: cities.length,
+            message: 'Successful',
+            data: cities
+        });
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            message: 'Internal Server Error'
+        });
     }
 };

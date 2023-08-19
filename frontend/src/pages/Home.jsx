@@ -48,7 +48,6 @@ const Home = () => {
                                 </p>
                             </div>
                         </Col>
-
                         <Col lg='2'>
                             <div className='hero__img-box'>
                                 <img
@@ -74,6 +73,7 @@ const Home = () => {
                                 />
                             </div>
                         </Col>
+
                         <SearchBar />
                     </Row>
                 </Container>

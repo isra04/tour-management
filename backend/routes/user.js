@@ -10,7 +10,7 @@ import { verifyUser, verifyAdmin } from '../utils/verifyToken.js';
 
 const router = express.Router();
 
-// create new tour
+// create new user
 router.post('/', verifyUser, createUser);
 
 // update new User

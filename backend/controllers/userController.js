@@ -83,7 +83,7 @@ export const getSingleUser = async (req, res) => {
 // getAll User
 export const getAllUser = async (req, res) => {
     try {
-        const user = await User.find({});
+        const user = await User.find();
         res.status(200).json({
             success: true,
             message: 'Successful',

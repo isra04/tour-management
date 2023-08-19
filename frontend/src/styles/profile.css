@@ -1,0 +1,105 @@
+.tourmaster-user-content {
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+.tourmaster-dashboard-profile-wrapper {
+    background-color: #f7f7f7;
+    padding: 45px 60px;
+    border-radius: 20px;
+}
+
+.tourmaster-user-content-title-wrap {
+    border-bottom-width: 0px;
+    border-color: #e8e8e8;
+    overflow: hidden;
+    padding-bottom: 14px;
+    margin-bottom: 12px;
+    border-bottom-style: solid;
+}
+
+.tourmaster-user-content-title {
+    font-size: 25px;
+    font-weight: 500;
+    color: #5c98f2;
+    float: left;
+    margin-bottom: 0px;
+    font-family: 'DM Serif Display', serif;
+    line-height: 1.2;
+}
+
+.tourmaster-user-content-title-link {
+    font-size: 17px;
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    color: #9e9e9e;
+    float: right;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.tourmaster-user-content-block .tourmaster-user-content-block-content {
+    overflow: auto;
+}
+
+.tourmaster-my-profile-wrapper {
+    margin-top: 45px;
+    margin-bottom: 10px;
+}
+
+.tourmaster-my-profile-avatar {
+    float: left;
+    margin-right: 40px;
+}
+
+.tourmaster-my-profile-avatar img {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+}
+
+.tourmaster-my-profile-info-wrap {
+    overflow: hidden;
+}
+
+.tourmaster-my-profile-info {
+    font-size: 17px;
+    margin-bottom: 14px;
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.tourmaster-my-profile-info.tourmaster-even {
+    clear: left;
+    padding-right: 10px;
+}
+
+.tourmaster-my-profile-info.tourmaster-odd {
+    padding-left: 10px;
+}
+
+.tourmaster-my-profile-info .tourmaster-head {
+    color: #545454;
+    float: left;
+    width: 130px;
+    margin-right: 10px;
+}
+
+.tourmaster-my-profile-info .tourmaster-tail {
+    font-weight: 500;
+    color: #545454;
+    display: block;
+    overflow: hidden;
+}
+.clearfix {
+    zoom: 1;
+}
+.clearfix:after {
+    content: ' ';
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}

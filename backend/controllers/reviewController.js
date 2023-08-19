@@ -19,3 +19,23 @@ export const createReview = async (req, res) => {
         res.status(500).json({ success: false, message: 'failed to submit' });
     }
 };
+
+export const getReviewsByUser = async (req, res) => {
+    const userId = req.params.id;
+
+    try {
+        const reviews = await Review.find({
+            userId: userId
+        });
+        res.status(200).json({
+            status: true,
+            message: 'successful',
+            data: reviews
+        });
+    } catch (error) {
+        res.status(404).json({
+            status: false,
+            message: 'not found'
+        });
+    }
+};

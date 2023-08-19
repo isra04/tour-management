@@ -3,13 +3,15 @@ import './search-bar.css';
 import { Col, Form, FormGroup } from 'reactstrap';
 import { BASE_URL } from '../utils/config';
 import { useNavigate } from 'react-router-dom';
+import SearchInputWithAutoOpenDropdown from '../components/Header/SearchInput';
+import useFetch from '../hooks/useFetch';
 
 const SearchBar = () => {
     const [location, setLocation] = useState('');
     const [distance, setDistance] = useState(0);
     const [maxGroupSize, setMaxGroupSize] = useState(0);
-
     const navigate = useNavigate();
+    const { data: cities } = useFetch(`${BASE_URL}/tours/search/getAllCities`);
 
     const searchHandler = async () => {
         if (location === '' || distance === 0 || maxGroupSize === 0) {
@@ -52,11 +54,10 @@ const SearchBar = () => {
                         </span>
                         <div>
                             <h6>Location</h6>
-                            <input
-                                type='text'
-                                placeholder='Where are you going?'
-                                value={location}
-                                onChange={(e) => setLocation(e.target.value)}
+                            <SearchInputWithAutoOpenDropdown
+                                cities={cities ? cities : []}
+                                location={location}
+                                setLocation={setLocation}
                             />
                         </div>
                     </FormGroup>

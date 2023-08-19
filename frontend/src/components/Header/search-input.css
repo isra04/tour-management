@@ -1,0 +1,9 @@
+.custom-form__control {
+    padding: 0px !important;
+    border-radius: 0px !important;
+}
+
+.custom-form__control:focus {
+    outline: 0 !important;
+    box-shadow: none !important;
+}

@@ -38,6 +38,27 @@ export const getBookingById = async (req, res) => {
     }
 };
 
+// Get all booking by userId
+export const getBookingByUserId = async (req, res) => {
+    const userId = req.params.id;
+
+    try {
+        const bookItem = await Booking.find({
+            userId: userId
+        });
+        res.status(200).json({
+            status: true,
+            message: 'successful',
+            data: bookItem
+        });
+    } catch (error) {
+        res.status(404).json({
+            status: false,
+            message: 'not found'
+        });
+    }
+};
+
 // Get all booking item
 
 export const getAllBooking = async (req, res) => {
