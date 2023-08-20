@@ -12,7 +12,7 @@ const Thankyou = () => {
                         lg='12'
                         className='pt-5 text-center'
                     >
-                        <div className='thank__you'>
+                        <div className='thank_you'>
                             <span>
                                 <i className='ri-checkbox-circle-line'></i>
                             </span>

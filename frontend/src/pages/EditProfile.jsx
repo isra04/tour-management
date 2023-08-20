@@ -65,8 +65,6 @@ const EditProfile = () => {
 
             const result = await res.json();
 
-            console.log(result);
-
             if (result.success) {
                 dispatch({ type: 'UPDATE_USER', payload: result.data });
                 toast.success(result.message);
@@ -93,7 +91,7 @@ const EditProfile = () => {
                             {/* Start: Title */}
                             <div className='tourmaster-user-content-title-wrap'>
                                 <h3 className='tourmaster-user-content-title'>
-                                    Booking History
+                                    Edit Profile
                                 </h3>
                             </div>
                             {/* End: Title */}

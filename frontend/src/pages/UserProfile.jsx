@@ -37,12 +37,12 @@ const UserProfile = () => {
                                     My Profile
                                 </h3>
 
-                                <Link
+                                {/* <Link
                                     to='/change-password'
                                     className='tourmaster-user-content-title-link'
                                 >
                                     Change Password
-                                </Link>
+                                </Link> */}
 
                                 <Link
                                     to='/edit-profile'
@@ -79,7 +79,6 @@ const UserProfile = () => {
                                                     : '-'}
                                             </span>
                                         </div>
-
                                         {/* Gender */}
                                         <div className='tourmaster-my-profile-info tourmaster-my-profile-info-gender tourmaster-odd clearfix'>
                                             <span className='tourmaster-head'>
@@ -91,7 +90,6 @@ const UserProfile = () => {
                                                     : '-'}
                                             </span>
                                         </div>
-
                                         <div className='tourmaster-my-profile-info tourmaster-my-profile-info-birth_date tourmaster-even clearfix'>
                                             <span className='tourmaster-head'>
                                                 Birth Date
@@ -111,6 +109,7 @@ const UserProfile = () => {
                                                     : '-'}
                                             </span>
                                         </div>
+
                                         <div className='tourmaster-my-profile-info tourmaster-my-profile-info-country tourmaster-odd clearfix'>
                                             <span className='tourmaster-head'>
                                                 Country

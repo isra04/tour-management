@@ -9,6 +9,7 @@ import Newsletter from '../shared/Newsletter';
 import useFetch from './../hooks/useFetch';
 import { BASE_URL } from '../utils/config';
 import { AuthContext } from './../context/AuthContext';
+import Gravatar from 'react-gravatar';
 
 const TourDetails = () => {
     const { id } = useParams();
@@ -45,6 +46,7 @@ const TourDetails = () => {
                 alert('Please sign in');
             }
             const reviewObj = {
+                userId: user._id,
                 username: user?.username,
                 reviewText,
                 rating: tourRating
@@ -129,7 +131,7 @@ const TourDetails = () => {
                                             <span>
                                                 {' '}
                                                 <i className='ri-money-dollar-circle-line'></i>{' '}
-                                                ${price} /per person{' '}
+                                                BDT {price} / per person{' '}
                                             </span>
                                             <span>
                                                 {' '}
@@ -142,75 +144,79 @@ const TourDetails = () => {
                                                 {maxGroupSize} people{' '}
                                             </span>
                                         </div>
+
                                         <h5>Description</h5>
                                         <p>{desc}</p>
                                     </div>
                                     {/* tour review section*/}
 
+                                    {/* Start: Create review and review list */}
                                     <div className='tour__reviews mt-4'>
                                         <h4>
                                             Reviews({reviews?.length} reviews)
                                         </h4>
 
-                                        <Form onSubmit={submitHandler}>
-                                            <div className='d-flex align-items-center gap-3 mb-4 rating_group'>
-                                                <span
-                                                    onClick={() =>
-                                                        setTourRating(1)
-                                                    }
-                                                >
-                                                    1{' '}
-                                                    <i className='ri-star-s-fill'></i>
-                                                </span>
-                                                <span
-                                                    onClick={() =>
-                                                        setTourRating(2)
-                                                    }
-                                                >
-                                                    2{' '}
-                                                    <i className='ri-star-s-fill'></i>
-                                                </span>
-                                                <span
-                                                    onClick={() =>
-                                                        setTourRating(3)
-                                                    }
-                                                >
-                                                    3{' '}
-                                                    <i className='ri-star-s-fill'></i>
-                                                </span>
-                                                <span
-                                                    onClick={() =>
-                                                        setTourRating(4)
-                                                    }
-                                                >
-                                                    4{' '}
-                                                    <i className='ri-star-s-fill'></i>
-                                                </span>
-                                                <span
-                                                    onClick={() =>
-                                                        setTourRating(5)
-                                                    }
-                                                >
-                                                    5{' '}
-                                                    <i className='ri-star-s-fill'></i>
-                                                </span>
-                                            </div>
+                                        {user && (
+                                            <Form onSubmit={submitHandler}>
+                                                <div className='d-flex align-items-center gap-3 mb-4 rating_group'>
+                                                    <span
+                                                        onClick={() =>
+                                                            setTourRating(1)
+                                                        }
+                                                    >
+                                                        1{' '}
+                                                        <i className='ri-star-s-fill'></i>
+                                                    </span>
+                                                    <span
+                                                        onClick={() =>
+                                                            setTourRating(2)
+                                                        }
+                                                    >
+                                                        2{' '}
+                                                        <i className='ri-star-s-fill'></i>
+                                                    </span>
+                                                    <span
+                                                        onClick={() =>
+                                                            setTourRating(3)
+                                                        }
+                                                    >
+                                                        3{' '}
+                                                        <i className='ri-star-s-fill'></i>
+                                                    </span>
+                                                    <span
+                                                        onClick={() =>
+                                                            setTourRating(4)
+                                                        }
+                                                    >
+                                                        4{' '}
+                                                        <i className='ri-star-s-fill'></i>
+                                                    </span>
+                                                    <span
+                                                        onClick={() =>
+                                                            setTourRating(5)
+                                                        }
+                                                    >
+                                                        5{' '}
+                                                        <i className='ri-star-s-fill'></i>
+                                                    </span>
+                                                </div>
 
-                                            <div className='review_input'>
-                                                <input
-                                                    type='text'
-                                                    ref={reviewMsgRef}
-                                                    placeholder='share your thoughts'
-                                                    required
-                                                />
-                                                <button
-                                                    className='btn primary__btn text-white'
-                                                    type='submit'
-                                                >
-                                                    Submit
-                                                </button>
-                                            </div>
-                                        </Form>
+                                                <div className='review_input'>
+                                                    <input
+                                                        type='text'
+                                                        ref={reviewMsgRef}
+                                                        placeholder='Share your thoughts'
+                                                        required
+                                                    />
+                                                    <button
+                                                        className='btn primary__btn text-white'
+                                                        type='submit'
+                                                    >
+                                                        Submit
+                                                    </button>
+                                                </div>
+                                            </Form>
+                                        )}
 
                                         <ListGroup className='user__reviews'>
                                             {reviews?.map((review, index) => (
@@ -218,11 +224,13 @@ const TourDetails = () => {
                                                     className='review__item'
                                                     key={index}
                                                 >
-                                                    <img
-                                                        src={avatar}
-                                                        alt=''
+                                                    <Gravatar
+                                                        email={
+                                                            user
+                                                                ? user.email
+                                                                : ''
+                                                        }
                                                     />
-
                                                     <div className='w-100'>
                                                         <div className='d-flex align-items-center justify-content-between'>
                                                             <div>

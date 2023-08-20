@@ -1,6 +1,13 @@
 import React, { useState, useContext } from 'react';
 import './booking.css';
-import { Form, FormGroup, ListGroup, ListGroupItem, Button } from 'reactstrap';
+import {
+    Form,
+    FormGroup,
+    ListGroup,
+    ListGroupItem,
+    Button,
+    Input
+} from 'reactstrap';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { BASE_URL } from '../../utils/config';
@@ -23,12 +30,16 @@ const Booking = ({ tour, avgRating }) => {
         setBooking((prev) => ({ ...prev, [e.target.id]: e.target.value }));
     };
 
-    const serviceFee = 10;
+    const serviceFee = 100;
     const totalAmount =
         Number(price) * Number(booking.guestSize) + Number(serviceFee);
 
     //send data to the server
     const handleClick = async (e) => {
+        if (!user) {
+            navigate('/login');
+            return;
+        }
         e.preventDefault();
         try {
             if (!user || user === undefined || user === null) {
@@ -57,7 +68,7 @@ const Booking = ({ tour, avgRating }) => {
         <div className='booking'>
             <div className='booking__top d-flex align-items-center justify-content-between'>
                 <h3>
-                    ${price} <span>/per person</span>{' '}
+                    BDT {price} <span>/per person</span>{' '}
                 </h3>
                 <span className='tour__rating d-flex align-items-center '>
                     <i className='ri-star-s-fill'></i>
@@ -72,7 +83,7 @@ const Booking = ({ tour, avgRating }) => {
                     onSubmit={handleClick}
                 >
                     <FormGroup>
-                        <input
+                        <Input
                             type='text'
                             placeholder='Full Name'
                             id='fullName'
@@ -81,7 +92,7 @@ const Booking = ({ tour, avgRating }) => {
                         />
                     </FormGroup>
                     <FormGroup>
-                        <input
+                        <Input
                             type='number'
                             placeholder='Phone'
                             id='phone'
@@ -90,14 +101,14 @@ const Booking = ({ tour, avgRating }) => {
                         />
                     </FormGroup>
                     <FormGroup className='d-flex align-items-center gap-3'>
-                        <input
+                        <Input
                             type='date'
                             placeholder=''
                             id='bookAt'
                             required
                             onChange={handleChange}
                         />
-                        <input
+                        <Input
                             type='number'
                             placeholder='Guest'
                             id='guestSize'
@@ -112,17 +123,18 @@ const Booking = ({ tour, avgRating }) => {
                 <ListGroup>
                     <ListGroupItem className='border-0 px-0'>
                         <h5 className='d-flex align-items-center gap-1'>
-                            ${price} <i className='ri-close-line'> 1 person</i>{' '}
+                            BDT {price}{' '}
+                            <i className='ri-close-line'> 1 person</i>{' '}
                         </h5>
-                        <span>${price}</span>
+                        <span>BDT{price}</span>
                     </ListGroupItem>
                     <ListGroupItem className='border-0 px-0'>
                         <h5>Service Charge </h5>
-                        <span>${serviceFee}</span>
+                        <span>BDT{serviceFee}</span>
                     </ListGroupItem>
                     <ListGroupItem className='border-0 px-0 total'>
                         <h5>Total </h5>
-                        <span>${totalAmount}</span>
+                        <span>BDT{totalAmount}</span>
                     </ListGroupItem>
                 </ListGroup>
 
