@@ -33,9 +33,9 @@ const EditProfile = () => {
             username: userInfo?.username,
             gender: userInfo?.gender,
             number: userInfo?.number,
-            birthDate: new Date(userInfo?.birthDate)
-                .toISOString()
-                .split('T')[0],
+            birthDate: userInfo.birthDate
+                ? new Date(userInfo?.birthDate).toISOString().split('T')[0]
+                : '',
             country: userInfo?.country,
             address: userInfo?.address
         };
