@@ -38,7 +38,7 @@ const UserProfile = () => {
                                 </h3>
 
                                 <Link
-                                    to='/edit-profile'
+                                    to='/change-password'
                                     className='tourmaster-user-content-title-link'
                                 >
                                     Change Password
@@ -98,7 +98,16 @@ const UserProfile = () => {
                                             </span>
                                             <span className='tourmaster-tail'>
                                                 {user?.birthDate
-                                                    ? user?.birthDate
+                                                    ? new Date(
+                                                          user.birthDate
+                                                      ).toLocaleDateString(
+                                                          'en-US',
+                                                          {
+                                                              year: 'numeric',
+                                                              month: 'long',
+                                                              day: 'numeric'
+                                                          }
+                                                      )
                                                     : '-'}
                                             </span>
                                         </div>
@@ -107,7 +116,9 @@ const UserProfile = () => {
                                                 Country
                                             </span>
                                             <span className='tourmaster-tail'>
-                                                Bangladesh
+                                                {user?.country
+                                                    ? user?.country
+                                                    : '-'}
                                             </span>
                                         </div>
                                         <div className='tourmaster-my-profile-info tourmaster-my-profile-info-email tourmaster-even clearfix'>
@@ -125,8 +136,8 @@ const UserProfile = () => {
                                                 Phone
                                             </span>
                                             <span className='tourmaster-tail'>
-                                                {user?.phone
-                                                    ? user?.phone
+                                                {user?.number
+                                                    ? user?.number
                                                     : '-'}
                                             </span>
                                         </div>

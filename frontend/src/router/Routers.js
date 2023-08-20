@@ -10,6 +10,7 @@ import SearchResultList from './../pages/SearchResultList';
 import About from '../pages/About';
 import ThankYou from '../pages/ThankYou';
 import UserProfile from '../pages/UserProfile';
+import EditProfile from '../pages/EditProfile';
 
 const Routers = () => {
     return (
@@ -53,7 +54,10 @@ const Routers = () => {
             <Route
                 path='/profile'
                 element={<UserProfile />}
-                exact
+            ></Route>
+            <Route
+                path='/edit-profile'
+                element={<EditProfile />}
             ></Route>
         </Routes>
     );

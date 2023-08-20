@@ -18,6 +18,29 @@ const userSchema = new mongoose.Schema(
             required: true
         },
 
+        gender: {
+            type: String,
+            required: false
+        },
+
+        number: {
+            type: String
+        },
+
+        country: {
+            type: String,
+            required: false
+        },
+
+        birthDate: {
+            type: Date,
+            required: false
+        },
+
+        address: {
+            type: String
+        },
+
         photo: {
             type: String
         },

@@ -49,7 +49,10 @@ const Header = () => {
         return window.removeEventListener('scroll', stickyHeaderFunc);
     });
 
-    const toggleMenu = () => menuRef.current.classlist.toggle('show__menu');
+    const toggleMenu = () => {
+        console.log(menuRef);
+        menuRef.current.classList.toggle('show__menu');
+    };
 
     return (
         <header
@@ -119,7 +122,7 @@ const Header = () => {
                             </div>
 
                             <span
-                                className='mobile__menu'
+                                className='mobile__menu cursor-pointer'
                                 onClick={toggleMenu}
                             >
                                 <i className='ri-menu-line'></i>
