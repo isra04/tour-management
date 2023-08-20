@@ -39,7 +39,6 @@ const EditProfile = () => {
             country: userInfo?.country,
             address: userInfo?.address
         };
-
         setFormData(existingData);
     }, []);
 

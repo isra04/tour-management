@@ -25,9 +25,9 @@ const Newsletter = () => {
                             </div>
 
                             <p>
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Obcaecati adipisci sunt in,
-                                provident facere ipsam.
+                                Join the journey to discover the beauty of
+                                Bangladesh. Subscribe now for exclusive travel
+                                updates, insider tips, and irresistible offers.
                             </p>
                         </div>
                     </Col>

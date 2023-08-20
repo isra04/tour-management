@@ -37,14 +37,20 @@ const Home = () => {
                                     <span className='highlight'>memories</span>
                                 </h1>
                                 <p>
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Placeat adipisci aliquid
-                                    nisi molestias quasi tempore quidem quisquam
-                                    facilis? Recusandae tempore eaque expedita
-                                    nostrum consectetur facilis quam atque
-                                    doloremque nihil aperiam. Placeat adipisci
-                                    aliquid nisi molestias quasi tempore quidem
-                                    quisquam facilis?
+                                    Welcome to your gateway to the breathtaking
+                                    beauty and rich cultural tapestry of
+                                    Bangladesh. Our travel app is your
+                                    personalized passport to explore the vibrant
+                                    landscapes, diverse traditions, and hidden
+                                    treasures that make Bangladesh a truly
+                                    remarkable destination. From the serene
+                                    shores of Cox's Bazar, where the world's
+                                    longest natural sandy sea beach stretches
+                                    before you, to the mystical mangrove forests
+                                    of the Sundarbans, home to the elusive
+                                    Bengal tiger – our app takes you on a
+                                    virtual journey through the heart of this
+                                    enchanting land.
                                 </p>
                             </div>
                         </Col>
@@ -125,10 +131,13 @@ const Home = () => {
                                 </h2>
 
                                 <p>
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. <br /> Minima omnis saepe
-                                    explicabo. Suscipit qui inventore laudantium
-                                    nesciunt unde atque!
+                                    At Travel Box, we are dedicated to ensuring
+                                    that your travel experience in Bangladesh is
+                                    nothing short of extraordinary. <br /> Our
+                                    comprehensive range of services is designed
+                                    to cater to your every need, from the moment
+                                    you plan your trip until you return with
+                                    cherished memories
                                 </p>
                             </div>
                             <div className='counter__wrapper  d-flex align-items-center gap-5'>
